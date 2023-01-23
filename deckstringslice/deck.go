@@ -1,4 +1,4 @@
-package main
+package deckstringslice
 
 import (
 	"encoding/json"
@@ -26,7 +26,7 @@ func newDeck() deck {
 	return cards
 }
 
-func (d deck) print() {
+func (d deck) Print() {
 	for i, card := range d {
 		fmt.Println(i, card)
 	}
@@ -49,7 +49,7 @@ func (d deck) saveToFile(filename string) error {
 	return os.WriteFile(filename, []byte(d.toCustomString()), 0666)
 }
 
-func readFromFile(filename string) (deck, error) {
+func ReadFromFile(filename string) (deck, error) {
 	fileBytes, err := os.ReadFile(filename)
 	if err != nil {
 		return nil, err
@@ -59,7 +59,7 @@ func readFromFile(filename string) (deck, error) {
 	return strings.Split(fileString, ","), nil
 }
 
-func (d deck) shuffle() {
+func (d deck) Shuffle() {
 	rand.Seed(time.Now().UnixNano())
 	rand.Shuffle(len(d), func(i, j int) {
 		d[i], d[j] = d[j], d[i]

@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+
+	"github.com/farshadahmadi/cards/deckstringslice"
 )
 
 func main() {
@@ -17,14 +19,14 @@ func main() {
 	//	fmt.Println(err)
 	//}
 
-	myCards, err := readFromFile("my_cards")
+	myCards, err := deckstringslice.ReadFromFile("my_cards")
 	if err != nil {
 		fmt.Println(err)
 		// os.Exit(1)
 		return
 	}
 
-	myCards.shuffle()
+	myCards.Shuffle()
 
-	myCards.print()
+	myCards.Print()
 }

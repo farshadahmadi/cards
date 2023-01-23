@@ -1,4 +1,4 @@
-package main
+package deckstringslice
 
 import (
 	"fmt"
@@ -52,7 +52,7 @@ func TestSaveToFileAndReadFromFile(t *testing.T) {
 	}
 
 	var actualDeck deck
-	actualDeck, err = readFromFile(testFileName)
+	actualDeck, err = ReadFromFile(testFileName)
 	if err != nil {
 		t.Errorf("Cannot read deck from file")
 	}
