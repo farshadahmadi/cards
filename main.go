@@ -3,10 +3,12 @@ package main
 import (
 	"fmt"
 
-	"github.com/farshadahmadi/cards/deckstringslice"
+	"github.com/farshadahmadi/cards/deckstruct"
 )
 
 func main() {
+	/* use deck string slice */
+
 	// cards := newDeck()
 
 	// handDeck, remainingDeck := deal(cards, 4)
@@ -19,14 +21,26 @@ func main() {
 	//	fmt.Println(err)
 	//}
 
-	myCards, err := deckstringslice.ReadFromFile("my_cards")
+	/*	myCards, err := deckstringslice.ReadFromFile("my_cards")
+		if err != nil {
+			fmt.Println(err)
+			// os.Exit(1)
+			return
+		}
+
+		myCards.Shuffle()
+
+		myCards.Print()*/
+
+	/* use deck struct */
+	myAnotherCards, err := deckstruct.ReadFromFile("my_cards")
 	if err != nil {
 		fmt.Println(err)
 		// os.Exit(1)
 		return
 	}
 
-	myCards.Shuffle()
+	myAnotherCards.Shuffle()
 
-	myCards.Print()
+	myAnotherCards.Print()
 }
